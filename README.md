@@ -1,10 +1,3 @@
-<!--
-/**
- * Copyright © - LiquidLab Agency - All rights reserved.
- * See LICENSE.txt for license details.
- */
--->
-
 # Liquidlab_HyvaMagePrincePaymentFee
 
 Hyvä Checkout compatibility module for **MagePrince Payment Fee** (`mageprince/magento2-paymentfee`).
@@ -16,6 +9,8 @@ The MagePrince Payment Fee module adds payment fees with tax to orders, but the 
 ## Solution
 
 This module makes the **Payment Fee Tax** visible as a dedicated line item in the Hyvä Checkout price summary, ensuring transparency for customers.
+
+![](media/hyva-checkout.png)
 
 ## Features
 
