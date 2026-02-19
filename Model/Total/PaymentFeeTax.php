@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © - LiquidLab Agency - All rights reserved.
  * See LICENSE.txt for license details.
@@ -41,8 +42,7 @@ class PaymentFeeTax extends AbstractTotal
         Quote $quote,
         ShippingAssignmentInterface $shippingAssignment,
         Total $total
-    ): static
-    {
+    ): static {
         parent::collect($quote, $shippingAssignment, $total);
 
         // We don't need to collect anything here, MagePrince already does the calculation
@@ -64,9 +64,9 @@ class PaymentFeeTax extends AbstractTotal
             return [];
         }
 
-        $taxAmount = $total->getPaymentFee() + $total->getPaymentFeeTax();
+        $taxAmount = (float)$total->getPaymentFee() + (float)$total->getPaymentFeeTax();
 
-        if (!$taxAmount || $taxAmount <= 0) {
+        if ($taxAmount <= 0) {
             return [];
         }
 
@@ -81,8 +81,8 @@ class PaymentFeeTax extends AbstractTotal
      * Get label
      *
      */
-    public function getLabel(): \Magento\Framework\Phrase
+    public function getLabel(): string
     {
-        return __('Payment Fee');
+        return (string)__('Payment Fee');
     }
 }

@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * Copyright © - LiquidLab Agency - All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+/**
  * Copyright © - Liquidlab - All rights reserved.
  * See LICENSE.txt for license details.
  */
