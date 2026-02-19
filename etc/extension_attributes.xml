@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © - LiquidLab Agency - All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+
+    <!-- Cart/Quote Extension Attributes -->
+    <extension_attributes for="Magento\Quote\Api\Data\CartInterface">
+        <attribute code="payment_fee" type="float"/>
+        <attribute code="base_payment_fee" type="float"/>
+        <attribute code="payment_fee_tax" type="float"/>
+        <attribute code="base_payment_fee_tax" type="float"/>
+    </extension_attributes>
+
+    <!-- Order Extension Attributes -->
+    <extension_attributes for="Magento\Sales\Api\Data\OrderInterface">
+        <attribute code="payment_fee" type="float"/>
+        <attribute code="base_payment_fee" type="float"/>
+        <attribute code="payment_fee_tax" type="float"/>
+        <attribute code="base_payment_fee_tax" type="float"/>
+    </extension_attributes>
+
+</config>

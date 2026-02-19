@@ -2,19 +2,24 @@
 
 Hyvä Checkout compatibility module for **MagePrince Payment Fee** (`mageprince/magento2-paymentfee`).
 
-## Problem
+## Problems Solved
 
-The MagePrince Payment Fee module adds payment fees with tax to orders, but the tax component is "invisible" to customers in the Hyvä Checkout UI. The module calculates and stores the payment fee tax in the quote, but doesn't expose it as a separate line item in the checkout summary.
+1. **Invisible Tax in Hyvä Checkout**: The MagePrince Payment Fee module calculates and stores the payment fee tax in the quote, but doesn't expose it as a separate line item in the checkout summary, making it "invisible" to customers.
+
+2. **Missing REST API Support**: The MagePrince Payment Fee module doesn't expose payment fee attributes via REST API (missing `extension_attributes.xml`), preventing headless/API-based checkout implementations from accessing these values.
 
 ## Solution
 
-This module makes the **Payment Fee Tax** visible as a dedicated line item in the Hyvä Checkout price summary, ensuring transparency for customers.
+This module provides:
+- ✅ **Payment Fee Tax visibility** as a dedicated line item in the Hyvä Checkout price summary
+- ✅ **REST API support** by adding extension attributes and plugins for Cart (Quote) and Order entities
 
 ![](media/hyva-checkout.png)
 
 ## Features
 
 - ✅ Displays Payment Fee Tax as a separate line item under the subtotal in Hyvä Checkout
+- ✅ Exposes payment fee attributes via REST API for headless/API-based implementations
 - ✅ Only shows when payment fee tax is enabled and has a value > 0
 - ✅ Fully integrated with MagePrince Payment Fee module
 - ✅ Multi-language support (English & Romanian included)
@@ -59,13 +64,19 @@ app/code/Liquidlab/HyvaMagePrincePaymentFee/
 ├── registration.php
 ├── etc/
 │   ├── module.xml
-│   └── sales.xml
+│   ├── sales.xml
+│   ├── di.xml
+│   └── extension_attributes.xml
 ├── i18n/
 │   ├── en_US.csv
 │   └── ro_RO.csv
 ├── Model/
 │   └── Total/
 │       └── PaymentFeeTax.php
+├── Plugin/
+│   └── Sales/
+│       ├── AddPaymentFeeToOrder.php
+│       └── AddPaymentFeeToCart.php
 └── view/
     └── frontend/
         ├── layout/
@@ -79,10 +90,20 @@ app/code/Liquidlab/HyvaMagePrincePaymentFee/
 
 ### Key Components
 
-- **Model/Total/PaymentFeeTax.php** - Total collector that exposes the tax segment
-- **etc/sales.xml** - Registers the total collector (sort_order: 501, after MagePrince's 500)
+**Hyvä Checkout Integration:**
+- **Model/Total/PaymentFeeTax.php** - Total collector that exposes the tax segment for display
 - **view/frontend/layout/hyva_checkout_components.xml** - Injects the template into Hyvä Checkout
 - **view/frontend/templates/.../payment_fee_tax.phtml** - Displays the tax line item
+
+**REST API Integration:**
+- **etc/extension_attributes.xml** - Declares extension attributes for Cart and Order APIs
+- **Plugin/Sales/AddPaymentFeeToOrder.php** - Populates payment fee data in Order REST API responses
+- **Plugin/Sales/Cart/AddPaymentFeeToCart.php** - Populates payment fee data in Cart REST API responses
+- **etc/di.xml** - Registers the plugins
+
+**Configuration:**
+- **etc/sales.xml** - Registers the total collector (sort_order: 501, after MagePrince's 500)
+- **etc/module.xml** - Module dependencies
 
 ### Dependencies
 

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © - LiquidLab Agency - All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- Plugin to add payment fee extension attributes to Order REST API -->
+    <type name="Magento\Sales\Api\OrderRepositoryInterface">
+        <plugin name="liquidlab_mageprince_payment_fee_order"
+                type="Liquidlab\HyvaMagePrincePaymentFee\Plugin\AddPaymentFeeToOrder"/>
+    </type>
+
+    <!-- Plugin to add payment fee extension attributes to Cart REST API -->
+    <type name="Magento\Quote\Api\CartRepositoryInterface">
+        <plugin name="liquidlab_mageprince_add_paymentfee_extension_attributes"
+                type="Liquidlab\HyvaMagePrincePaymentFee\Plugin\AddPaymentFeeToCart"/>
+    </type>
+
+</config>
