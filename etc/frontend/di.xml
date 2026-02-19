@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © - LiquidLab - All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd"
+>
+    <type name="Hyva\CompatModuleFallback\Model\CompatModuleRegistry">
+        <arguments>
+            <argument name="compatModules" xsi:type="array">
+                <item name="hyva-magento2-checkout-paymentfee" xsi:type="array">
+                    <item name="original_module" xsi:type="string">Mageprince_Paymentfee</item>
+                    <item name="compat_module" xsi:type="string">Liquidlab_HyvaMagePrincePaymentFee</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

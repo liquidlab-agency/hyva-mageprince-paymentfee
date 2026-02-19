@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © - LiquidLab - All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd"
+>
+    <event name="hyva_config_generate_before">
+        <observer name="liquidlab_paymentfee_register_module_for_hyva_config"
+                  instance="Liquidlab\HyvaMagePrincePaymentFee\Observer\RegisterModuleForHyvaConfig"/>
+    </event>
+</config>

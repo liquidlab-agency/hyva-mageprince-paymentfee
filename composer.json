@@ -1,0 +1,28 @@
+{
+    "name": "liquidlab-agency/hyva-mageprince-paymentfee",
+    "description": "Hyvä Checkout compatibility module for MagePrince Payment Fee - displays payment fee tax as a separate line item",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "LiquidLab Agency",
+            "email": "contact@liquidlab.ro",
+            "homepage": "https://liquidlab.ro"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "magento/framework": ">=103.0",
+        "mageprince/magento2-paymentfee": "*",
+        "hyva-themes/magento2-hyva-checkout": "*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Liquidlab\\HyvaMagePrincePaymentFee\\": ""
+        }
+    }
+}

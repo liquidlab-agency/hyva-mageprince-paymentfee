@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © - LiquidLab Agency - All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="price-summary.total-segments">
+            <block name="price-summary.total-segment.payment_fee_tax"
+                   as="payment_fee_tax"
+                   template="Liquidlab_HyvaMagePrincePaymentFee::checkout/price-summary/total-segments/payment_fee_tax.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

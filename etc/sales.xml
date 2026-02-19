@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © - LiquidLab Agency - All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Sales:etc/sales.xsd">
+    <section name="quote">
+        <group name="totals">
+            <!-- Register our payment fee tax collector after MagePrince's payment_fee collector -->
+            <item name="payment_fee_tax"
+                  instance="Liquidlab\HyvaMagePrincePaymentFee\Model\Total\PaymentFeeTax"
+                  sort_order="501"/>
+        </group>
+    </section>
+</config>
