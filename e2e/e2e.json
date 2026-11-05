@@ -1,0 +1,5 @@
+{
+  "name": "hyva-mageprince-paymentfee",
+  "description": "The cash-on-delivery fee in the Hyvä checkout: a fee line appears with cash on delivery and is the whole difference in the total, goes away with another method, and a placed order is charged the total the checkout showed.",
+  "requires": ["mageprince/magento2-paymentfee"]
+}
